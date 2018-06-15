@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="product_add">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,183 +23,227 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
 
-<body>
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/angular/angular-messages.js"></script>
+    <script>
+        angular.module("product_add", ["ngMessages"]);
+        angular.module("product_add")
+            .controller("product_add_controller", function ($scope) {
+                $scope.products = [
+                    { id: 1, category_id: 1, title: "Dress", description: "Middle blue", price: 29.90, quantity: 3 },
+                    { id: 2, category_id: 2, title: "Caraval", description: "Hardcover", price: 49.90, quantity: 10 },
+                    { id: 3, category_id: 2, title: "Legendary", description: "Hardcover", price: 69.90, quantity: 30 }
+                ];
 
-    <section id="container">
-        <!-- **********************************************************************************************************************************************************
+                $scope.categories = [
+                    { id: 1, name: "Clothing" },
+                    { id: 2, name: "Books" },
+                    { id: 3, name: "Toys" }
+                ];
+
+                $scope.reset_form = function (product) {
+                    delete $scope.product;
+                    $scope.product_add_form.$setPristine();
+                };
+
+                $scope.add_product = function (product) {
+                    console.log($scope.product);
+                    $scope.products.push(angular.copy(product));
+                    $scope.reset_form(product);
+                }; 
+            });
+    </script>
+</head >
+
+            <body>
+
+                <section id="container">
+                    <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
         <!--header start-->
         <header class="header black-bg">
-            <div class="sidebar-toggle-box">
-                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-            </div>
-            <!--logo start-->
+                        <div class="sidebar-toggle-box">
+                            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                        </div>
+                        <!--logo start-->
             <a href="index.html" class="logo"><b>Stock Managements</b></a>
-            <!--logo end-->
+                        <!--logo end-->
 
         </header>
-        <!--header end-->
+                    <!--header end-->
         <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
         <aside>
-            <div id="sidebar" class="nav-collapse ">
-                <!-- sidebar menu start-->
+                        <div id="sidebar" class="nav-collapse ">
+                            <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-tag"></i>
-                            <span>Category</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="category_add.html">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Add</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="category_list.html">
-                                    <i class="fa fa-th"></i>
-                                    <span>List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-barcode"></i>
-                            <span>Product</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="product_add.html">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Add</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="product_list.html">
-                                    <i class="fa fa-th"></i>
-                                    <span>List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-truck"></i>
-                            <span>Stock</span>
-                        </a>
-                        <ul class="sub">
-                            <li>
-                                <a href="stock_add.html">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Add</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="stock_list.html">
-                                    <i class="fa fa-th"></i>
-                                    <span>List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- sidebar menu end-->
+                                <li class="sub-menu">
+                                    <a href="javascript:;">
+                                        <i class="fa fa-tag"></i>
+                                        <span>Category</span>
+                                    </a>
+                                    <ul class="sub">
+                                        <li>
+                                            <a href="category_add.html">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Add</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="category_list.html">
+                                                <i class="fa fa-th"></i>
+                                                <span>List</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="javascript:;">
+                                        <i class="fa fa-barcode"></i>
+                                        <span>Product</span>
+                                    </a>
+                                    <ul class="sub">
+                                        <li>
+                                            <a href="product_add.html">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Add</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="product_list.html">
+                                                <i class="fa fa-th"></i>
+                                                <span>List</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="javascript:;">
+                                        <i class="fa fa-truck"></i>
+                                        <span>Stock</span>
+                                    </a>
+                                    <ul class="sub">
+                                        <li>
+                                            <a href="stock_add.html">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Add</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="stock_list.html">
+                                                <i class="fa fa-th"></i>
+                                                <span>List</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- sidebar menu end-->
             </div>
-        </aside>
-        <!--sidebar end-->
+                    </aside>
+                    <!--sidebar end-->
 
         <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
         <!--main content start-->
         <section id="main-content">
-            <section class="wrapper">
-                <h3><i class="fa fa-angle-right"></i> Product</h3>
+                        <section class="wrapper">
+                            <h3><i class="fa fa-angle-right"></i> Product</h3>
 
-                <!-- BASIC FORM ELELEMNTS -->
-                <form class="form-horizontal style-form" method="get">
+                            <!-- BASIC FORM ELELEMNTS -->
+                            <form class="form-horizontal style-form" method="get" ng-controller="product_add_controller" name="product_add_form">
+                                <div class="row mt">
+                                    <div class="col-lg-12">
+                                        <div class="form-panel">
+                                            <h4 class="mb"><i class="fa fa-angle-right"></i> Add</h4>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="col-sm-1 col-sm-1 control-label">Id</label>
+                                                    <div class="col-sm-4">
+                                                        <input class="form-control" id="disabledInput" type="text" ng-model="product.id" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1"><br /></div>
+                                                <div ng-class="{'has-error' : product_add_form.title.$error.required && product_add_form.title.$dirty, 'has-warning' : product_add_form.title.$error.minlength, 'has-success' : product_add_form.title.$valid}">
+                                                    <label class="col-sm-1 col-sm-1 control-label">Title</label>
+                                                    <div class="col-sm-5" ng-messages="product_add_form.title.$error">
+                                                        <input type="text" class="form-control" ng-model="product.title" ng-required="true" name="title" ng-minlength="3">
+                                                        <span class="help-block" ng-message="required">Title required.</span>
+                                                        <span class="help-block" ng-message="minlength">Must have at least 3 caracters.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div ng-class="{'has-error' : product_add_form.quantity.$error.required && product_add_form.quantity.$dirty, 'has-success' : product_add_form.quantity.$valid}">
+                                                    <label class="col-sm-1 col-sm-1 control-label">Quantity</label>
+                                                    <div class="col-sm-4" ng-messages="product_add_form.quantity.$error">
+                                                        <input type="number" class="form-control" ng-model="product.quantity" ng-required="true" name="quantity">
+                                                        <span class="help-block" ng-message="required">Quantity required.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1"><br /></div>
+                                                <div ng-class="{'has-error' : product_add_form.category.$error.required && product_add_form.category.$dirty, 'has-success' : product_add_form.category.$valid}">
+                                                    <label class="col-sm-1 col-sm-1 control-label">Category</label>
+                                                    <div class="col-sm-5" ng-messages="product_add_form.category.$error">
+                                                        <select class="form-control" ng-model="product.category_id" ng-options="category.id as category.name for category in categories" ng-required="true" name="category">
+                                                            <option value="">Category selection:</option>
+                                                        </select>
+                                                        <span class="help-block" ng-message="required">Category required.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-class="{'has-error' : product_add_form.description.$error.required && product_add_form.description.$dirty, 'has-warning' : product_add_form.description.$error.minlength, 'has-success' : product_add_form.description.$valid}">
+                                                <label class="col-sm-1 col-sm-1 control-label">Description</label>
+                                                <div class="col-sm-11" ng-messages="product_add_form.description.$error">
+                                                    <textarea rows="3" class="form-control" ng-model="product.description" ng-minlength="8" ng-required="true" name="description"></textarea>
+                                                    <span class="help-block" ng-message="required">Description required.</span>
+                                                    <span class="help-block" ng-message="minlength">Must have at least 8 caracters.</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-class="{'has-error' : product_add_form.price.$error.required && product_add_form.price.$dirty, 'has-warning': product_add_form.price.$error.pattern, 'has-success' : product_add_form.price.$valid}">
+                                                <label class="col-sm-1 col-sm-1 control-label">Price</label>
+                                                <div ng-messages="product_add_form.price.$error">
+                                                    <div class="input-group col-sm-2">
+                                                        <span class="input-group-addon">$</span>
+                                                        <input type="text" class="form-control" ng-model="product.price" name="price" ng-required="true" ng-pattern="/^\d+([.]\d{1,2})?$/">
+                                                    </div>
+                                                    <div class="col-sm-1"></div>
+                                                    <div class="col-sm-11">
+                                                        <span class="help-block" ng-message="required">Price required.</span> 
+                                                        <span class="help-block" ng-message="pattern">Not allowed format. Ex.: 999.99.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-theme" ng-click="reset_form()" ng-disabled="product_add_form.$invalid">Clean</button>
+                                            <button type="submit" class="btn btn-theme" ng-click="add_product(product)" ng-disabled="product_add_form.$invalid">OK</button>
 
-                    <div class="row mt">
-                        <div class="col-lg-12">
-                            <div class="form-panel">
-                                <h4 class="mb"><i class="fa fa-angle-right"></i> Add</h4>
-                                <div class="form-group">
-                                    <label class="col-sm-1 col-sm-1 control-label">Id</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" id="disabledInput" type="text" disabled>
-                                    </div>
-
-                                    <div class="col-sm-1"><br /></div>
-                                    
-                                    <label class="col-sm-1 col-sm-1 control-label">Title</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control">
-                                    </div>                                    
+                                        </div>
+                                    </div><!-- col-lg-12-->
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-1 col-sm-1 control-label">Quantity</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control">
-                                    </div>
-
-                                    <div class="col-sm-1"><br /></div>
-                                    
-                                    <label class="col-sm-1 col-sm-1 control-label">Category</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-1 col-sm-1 control-label">Description</label>
-                                    <div class="col-sm-11">
-                                        <textarea rows="3" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-1 col-sm-1 control-label">Price</label>
-                                    <div class="input-group col-sm-2">
-                                        <span class="input-group-addon">$</span>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-theme">Clean</button>
-                                <button type="submit" class="btn btn-theme">OK</button>
-
-                            </div>
-                        </div><!-- col-lg-12-->
-                    </div><!-- /row -->
+                                    <!-- /row -->
                 </form>
             </section><! --/wrapper -->
         </section>
-        <!-- /MAIN CONTENT -->
+                                    <!-- /MAIN CONTENT -->
         <!--main content end-->
         <!--footer start-->
         <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is
+                                        <div class="text-center">
+                                            2014 - Alvarez.is
                 <a href="form_component.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
+                                                <i class="fa fa-angle-up"></i>
+                                            </a>
+                                        </div>
+                                    </footer>
+                                    <!--footer end-->
     </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
+                                <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
@@ -230,15 +274,6 @@
 
     <script src="assets/js/form-component.js"></script>
 
-
-    <script>
-        //custom select box
-
-        $(function () {
-            $('select.styled').customSelect();
-        });
-
-    </script>
 
 </body>
 </html>
