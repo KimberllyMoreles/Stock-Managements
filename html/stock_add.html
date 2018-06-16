@@ -32,24 +32,20 @@
     <script>
         angular.module("stock_add", ["ngMessages"]);
         angular.module("stock_add")
-            .controller("stock_add_controller", function ($scope) {
-                $scope.categories = [
-                    { id: 1, name: "Clothing" },
-                    { id: 2, name: "Books" },
-                    { id: 3, name: "Toys" }
-                ];
+            .controller("stock_add_controller", function ($scope, $http) {
+                $scope.products = [];
 
-                $scope.stocks = [
-                    { id: 1, product_id: 1, quantity: 1, datetime: '2018-04-06 22:11:45' },
-                    { id: 2, product_id: 2, quantity: 3, datetime: '2018-05-06 12:18:15' },
-                    { id: 1, product_id: 1, quantity: 8, datetime: '2018-04-29 10:38:27' }
-                ];
+                var load_products = function () {
+                    $http.get("http://localhost:3000/products").then(successCallback, errorCallback);
 
-                $scope.products = [
-                    { id: 1, category_id: 1, title: "Dress", description: "Middle blue", price: 29.90, quantity: 3 },
-                    { id: 2, category_id: 2, title: "Caraval", description: "Hardcover", price: 49.90, quantity: 10 },
-                    { id: 3, category_id: 2, title: "Legendary", description: "Hardcover", price: 69.90, quantity: 30 }
-                ];
+                    function successCallback(data) {
+                        $scope.products = data.data;
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
+                };
 
                 $scope.reset_form = function (stock) {
                     delete $scope.stock;
@@ -57,10 +53,18 @@
                 };
 
                 $scope.add_stock = function (stock) {
-                    console.log($scope.stock);
-                    $scope.stocks.push(angular.copy(stock));
-                    $scope.reset_form(stock);
-                }; 
+                    $http.post("http://localhost:3000/stocks", stock).then(successCallback, errorCallback);
+
+                    function successCallback(data) {
+                        $scope.reset_form(stock);
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
+                };
+
+                load_products();
             });
     </script>
 

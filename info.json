@@ -1,0 +1,88 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Books"
+    },
+    {
+      "id": 2,
+      "name": "Toy"
+    },
+    {
+      "id": 3,
+      "name": "Clothing"
+    },
+    {
+      "name": "teste",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category_id": 1,
+      "title": "Dress",
+      "description": "Middle blue",
+      "price": 29.9,
+      "quantity": 3
+    },
+    {
+      "id": 2,
+      "category_id": 2,
+      "title": "Caraval",
+      "description": "Hardcover",
+      "price": 49.9,
+      "quantity": 10
+    },
+    {
+      "id": 3,
+      "category_id": 2,
+      "title": "Legendary",
+      "description": "Hardcover",
+      "price": 69.9,
+      "quantity": 30
+    },
+    {
+      "category_id": 4,
+      "title": "tesr",
+      "quantity": 1,
+      "description": "jhvgckjhgv",
+      "price": "22.66",
+      "id": 4
+    },
+    {
+      "title": "mlk",
+      "quantity": 9,
+      "description": "kjhgcvbnm,m",
+      "price": "77",
+      "category_id": 1,
+      "id": 5
+    }
+  ],
+  "stocks": [
+    {
+      "id": 1,
+      "product_id": 1,
+      "quantity": 1,
+      "datetime": "new"
+    },
+    {
+      "id": 2,
+      "product_id": 2,
+      "quantity": 3,
+      "datetime": "new"
+    },
+    {
+      "id": 1,
+      "product_id": 1,
+      "quantity": 8,
+      "datetime": "new"
+    },
+    {
+      "product_id": 5,
+      "quantity": 2,
+      "datetime": "2018-06-05 05:25",
+      "id": 3
+    }
+  ]
+}

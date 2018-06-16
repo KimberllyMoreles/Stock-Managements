@@ -28,17 +28,27 @@
     <script>
         angular.module("category_list", []);
         angular.module("category_list")
-            .controller("category_list_controller", function ($scope) {
-                $scope.categories = [
-                    { id: 1, name: "Clothing" },
-                    { id: 2, name: "Books" },
-                    { id: 3, name: "Toys" }
-                ];
+            .controller("category_list_controller", function ($scope, $http) {
+                $scope.categories = [];
+
+                var load_categories = function () {
+                    $http.get("http://localhost:3000/categories").then(successCallback, errorCallback);
+
+                    function successCallback(data) {
+                        $scope.categories = data.data;
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
+                };
 
                 $scope.ordenarPor = function (campo) {
                     $scope.criterioDeOrdenacao = campo;
                     $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
                 };
+
+                load_categories();
             });
     </script>
 </head>

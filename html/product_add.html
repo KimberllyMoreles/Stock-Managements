@@ -29,29 +29,39 @@
     <script>
         angular.module("product_add", ["ngMessages"]);
         angular.module("product_add")
-            .controller("product_add_controller", function ($scope) {
-                $scope.products = [
-                    { id: 1, category_id: 1, title: "Dress", description: "Middle blue", price: 29.90, quantity: 3 },
-                    { id: 2, category_id: 2, title: "Caraval", description: "Hardcover", price: 49.90, quantity: 10 },
-                    { id: 3, category_id: 2, title: "Legendary", description: "Hardcover", price: 69.90, quantity: 30 }
-                ];
+            .controller("product_add_controller", function ($scope, $http) {
+                $scope.categories = [];
 
-                $scope.categories = [
-                    { id: 1, name: "Clothing" },
-                    { id: 2, name: "Books" },
-                    { id: 3, name: "Toys" }
-                ];
+                var load_categories = function () {
+                    $http.get("http://localhost:3000/categories").then(successCallback, errorCallback);
 
+                    function successCallback(data) {
+                        $scope.categories = data.data;
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
+                };
+                
                 $scope.reset_form = function (product) {
                     delete $scope.product;
                     $scope.product_add_form.$setPristine();
                 };
 
                 $scope.add_product = function (product) {
-                    console.log($scope.product);
-                    $scope.products.push(angular.copy(product));
-                    $scope.reset_form(product);
+                    $http.post("http://localhost:3000/products", product).then(successCallback, errorCallback);
+
+                    function successCallback(data) {
+                        $scope.reset_form(product);
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
                 }; 
+
+                load_categories();
             });
     </script>
 </head >

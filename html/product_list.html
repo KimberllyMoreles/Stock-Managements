@@ -28,17 +28,27 @@
     <script>
         angular.module("product_list", []);
         angular.module("product_list")
-            .controller("product_list_controller", function ($scope) {
-                $scope.products = [
-                    { id: 1, category_id: 1, title: "Dress", description: "Middle blue", price: 29.90, quantity: 3 },
-                    { id: 2, category_id: 2, title: "Caraval", description: "Hardcover", price: 49.90, quantity: 10 },
-                    { id: 3, category_id: 2, title: "Legendary", description: "Hardcover", price: 69.90, quantity: 30 }
-                ];
+            .controller("product_list_controller", function ($scope, $http) {
+                $scope.products = [];
+
+                var load_products = function () {
+                    $http.get("http://localhost:3000/products").then(successCallback, errorCallback);
+
+                    function successCallback(data) {
+                        $scope.products = data.data;
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
+                };
 
                 $scope.ordenarPor = function (campo) {
                     $scope.criterioDeOrdenacao = campo;
                     $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
                 };
+
+                load_products();
             });
     </script>
 </head>

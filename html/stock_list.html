@@ -29,17 +29,27 @@
     <script>
         angular.module("stock_list", []);
         angular.module("stock_list")
-            .controller("stock_list_controller", function ($scope) {
-                $scope.stocks = [
-                    { id: 1, product_id: 1, quantity: 1, datetime: new Date() },
-                    { id: 2, product_id: 2, quantity: 3, datetime: new Date() },
-                    { id: 1, product_id: 1, quantity: 8, datetime: new Date() }
-                ];
+            .controller("stock_list_controller", function ($scope, $http) {
+                $scope.stocks = [];
+
+                var load_stocks = function () {
+                    $http.get("http://localhost:3000/stocks").then(successCallback, errorCallback);
+
+                    function successCallback(data) {
+                        $scope.stocks = data.data;
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
+                };
 
                 $scope.ordenarPor = function (campo) {
                     $scope.criterioDeOrdenacao = campo;
                     $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
                 };
+
+                load_stocks();
             });
     </script>
 </head>
@@ -161,7 +171,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="hidden-phone"><a href="" ng-click="ordenarPor('id')"><i class="fa fa-question-circle"></i> ID</a></th>
-                                                    <th><a href="" ng-click="ordenarPor('product')"><i class="fa fa-bookmark"></i> Product</a></th>
+                                                    <th><a href="" ng-click="ordenarPor('product_id')"><i class="fa fa-bookmark"></i> Product</a></th>
                                                     <th class="hidden-phone"><a href="" ng-click="ordenarPor('quantity')"><i class=" fa fa-edit"></i> Quantity</a></th>
                                                     <th><a href="" ng-click="ordenarPor('datetime')"><i class=" fa fa-edit"></i> Datetime</a></th>
                                                     <th></th>

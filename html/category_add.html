@@ -29,12 +29,8 @@
     <script>
         angular.module("category_add", ["ngMessages"]);
         angular.module("category_add")
-            .controller("category_add_controller", function ($scope) {
-                $scope.categories = [
-                    { id: 1, name: "Clothing" },
-                    { id: 2, name: "Books" },
-                    { id: 3, name: "Toys" }
-                ];
+            .controller("category_add_controller", function ($scope, $http) {
+                $scope.categories = [];
 
                 $scope.reset_form = function () {
                     delete $scope.category;
@@ -42,9 +38,15 @@
                 };
 
                 $scope.add_category = function (category) {
-                    console.log($scope.category);
-                    $scope.categories.push(angular.copy(category));
-                    $scope.reset_form(category);
+                    $http.post("http://localhost:3000/categories", category).then(successCallback, errorCallback);
+
+                    function successCallback(data) {
+                        $scope.reset_form(category);
+                    }
+
+                    function errorCallback(error) {
+                        $scope.message = "Error: " + error;
+                    }
                 };               
             });
     </script>
