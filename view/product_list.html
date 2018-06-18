@@ -32,6 +32,7 @@
     <script src="../js/services/products_API_service.js"></script>
     <script src="../js/services/categories_API_service.js"></script>
     <script src="../js/value/configValue.js"></script>
+    <script src="../js/filters/ellipsisFilter.js"></script>
 </head>
 
 <body ng-controller="product_controller">
@@ -160,8 +161,8 @@
                                     <tr ng-repeat="product in products | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td class="hidden-phone">{{product.id}}</td>
                                         <td class="hidden-phone">{{product.category_id}}</td>
-                                        <td>{{product.title}}</td>
-                                        <td class="hidden-phone">{{product.description}}</td>
+                                        <td>{{product.title | ellipsis}}</td>
+                                        <td class="hidden-phone">{{product.description | ellipsis:20}}</td>
                                         <td>{{product.price | currency}}</td>
                                         <td class="hidden-phone">{{product.quantity}}</td>
                                         <td>

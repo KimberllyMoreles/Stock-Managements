@@ -15,8 +15,9 @@ angular.module("stock_managements")
         };
 
         $scope.add_category = function (category) {
-            categoriesAPI.saveCategory().then(successCallback, errorCallback);
+            categoriesAPI.saveCategory(category).then(successCallback, errorCallback);
 
+            console.log(category);
             function successCallback(data) {
                 $scope.reset_form(category);
             }

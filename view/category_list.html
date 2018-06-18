@@ -31,6 +31,7 @@
     <script src="../js/controllers/category_controller.js"></script>
     <script src="../js/services/categories_API_service.js"></script>
     <script src="../js/value/configValue.js"></script>
+    <script src="../js/filters/ellipsisFilter.js"></script>
 </head>
 
 <body ng-controller="category_controller">
@@ -154,7 +155,7 @@
                                 <tbody>
                                     <tr ng-repeat="category in categories | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td class="hidden-phone">{{category.id}}</td>
-                                        <td>{{category.name}}</td>
+                                        <td>{{category.name | ellipsis}}</td>
                                         <td>
                                             <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                             <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>

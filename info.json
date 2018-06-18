@@ -25,8 +25,12 @@
       "id": 6
     },
     {
-      "name": "add",
-      "id": "[=;O3+3'(4P-]58J31C3]1 HDT)\\9+&^_W2&.E4R_5O3-<BD^]67=OL*1I7K-V-*=<VSO1SEO%H0-N?7Z\\6B\\CJ )>ERCC\\^2ODE"
+      "name": "teste",
+      "id": 7
+    },
+    {
+      "name": "kljkhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+      "id": 8
     }
   ],
   "products": [
@@ -85,6 +89,22 @@
       "description": "dedededed",
       "price": "22",
       "id": 7
+    },
+    {
+      "title": "mlk",
+      "quantity": 1,
+      "category_id": 3,
+      "description": "erwrwewrr",
+      "price": "77",
+      "id": 8
+    },
+    {
+      "title": "asd",
+      "quantity": 1,
+      "category_id": 4,
+      "description": "asddsçald,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_product_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minlengthproduct_add_form.title.$error.minle",
+      "price": "999",
+      "id": 9
     }
   ],
   "stocks": [
@@ -123,6 +143,12 @@
       "quantity": 1,
       "datetime": "2018-06-05 05:25",
       "id": 5
+    },
+    {
+      "product_id": 3,
+      "quantity": 44,
+      "datetime": "2018-06-05 05:25",
+      "id": 6
     }
   ]
 }
