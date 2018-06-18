@@ -15,6 +15,18 @@
     {
       "name": "teste",
       "id": 4
+    },
+    {
+      "name": "add",
+      "id": 5
+    },
+    {
+      "name": "bus",
+      "id": 6
+    },
+    {
+      "name": "add",
+      "id": "[=;O3+3'(4P-]58J31C3]1 HDT)\\9+&^_W2&.E4R_5O3-<BD^]67=OL*1I7K-V-*=<VSO1SEO%H0-N?7Z\\6B\\CJ )>ERCC\\^2ODE"
     }
   ],
   "products": [
@@ -57,6 +69,22 @@
       "price": "77",
       "category_id": 1,
       "id": 5
+    },
+    {
+      "title": "mlk",
+      "quantity": 7,
+      "category_id": 1,
+      "description": "mbnvcdty",
+      "price": "77",
+      "id": 6
+    },
+    {
+      "title": "fe\\",
+      "quantity": 3,
+      "category_id": 6,
+      "description": "dedededed",
+      "price": "22",
+      "id": 7
     }
   ],
   "stocks": [
@@ -83,6 +111,18 @@
       "quantity": 2,
       "datetime": "2018-06-05 05:25",
       "id": 3
+    },
+    {
+      "product_id": 6,
+      "quantity": 6,
+      "datetime": "2018-06-06 06:30",
+      "id": 4
+    },
+    {
+      "product_id": 7,
+      "quantity": 1,
+      "datetime": "2018-06-05 05:25",
+      "id": 5
     }
   ]
 }

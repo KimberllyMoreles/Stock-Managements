@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="product_list">
+<html lang="en" ng-app="stock_managements">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +10,14 @@
     <title>Stock Managements</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,35 +26,16 @@
     <![endif]-->
 
     <script src="../lib/angular/angular.js"></script>
-    <script>
-        angular.module("product_list", []);
-        angular.module("product_list")
-            .controller("product_list_controller", function ($scope, $http) {
-                $scope.products = [];
+    <script src="../lib/angular/angular-messages.js"></script>
 
-                var load_products = function () {
-                    $http.get("http://localhost:3000/products").then(successCallback, errorCallback);
-
-                    function successCallback(data) {
-                        $scope.products = data.data;
-                    }
-
-                    function errorCallback(error) {
-                        $scope.message = "Error: " + error;
-                    }
-                };
-
-                $scope.ordenarPor = function (campo) {
-                    $scope.criterioDeOrdenacao = campo;
-                    $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
-                };
-
-                load_products();
-            });
-    </script>
+    <script src="../js/stock_managements.js"></script>
+    <script src="../js/controllers/stock_controller.js"></script>
+    <script src="../js/services/stocks_API_service.js"></script>
+    <script src="../js/services/products_API_service.js"></script>
+    <script src="../js/value/configValue.js"></script>
 </head>
 
-<body>
+<body ng-controller="stock_controller">
 
     <section id="container">
         <!-- **********************************************************************************************************************************************************
@@ -150,7 +132,7 @@
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                <h3><i class="fa fa-angle-right"></i> Product</h3>
+                <h3><i class="fa fa-angle-right"></i> Stock</h3>
                 <div class="row mt">
                     <div class="col-md-12">
                         <div class="content-panel">
@@ -163,37 +145,36 @@
                                     </span>
                                 </div>
                             </div>
-                            <table class="table table-striped table-advance table-hover" ng-controller="product_list_controller" >
-                                <thead>
-                                    <tr>
-                                        <th class="hidden-phone"><a href="" ng-click="ordenarPor('id')"><i class="fa fa-question-circle"></i> ID</a></th>
-                                        <th class="hidden-phone"><a href="" ng-click="ordenarPor('category_id')"><i class="fa fa-bookmark"></i> Category</a></th>
-                                        <th><a href="" ng-click="ordenarPor('title')"><i class=" fa fa-edit"></i> Title</a></th>
-                                        <th class="hidden-phone"><a href="" ng-click="ordenarPor('description')"><i class="fa fa-bookmark"></i> Description</a></th>
-                                        <th><a href="" ng-click="ordenarPor('price')"><i class=" fa fa-edit"></i> Price</a></th>
-                                        <th class="hidden-phone"><a href="" ng-click="ordenarPor('quantity')"><i class="fa fa-bullhorn"></i> Quantity</a></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="product in products | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td class="hidden-phone">{{product.id}}</td>
-                                        <td class="hidden-phone">{{product.category_id}}</td>
-                                        <td>{{product.title}}</td>
-                                        <td class="hidden-phone">{{product.description}}</td>
-                                        <td>{{product.price | currency}}</td>
-                                        <td class="hidden-phone">{{product.quantity}}</td>
-                                        <td>
-                                            <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                            <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div><!-- /content-panel -->
-                    </div><!-- /col-md-12 -->
-                </div><!-- /row -->
+                            <div class="row mt">
+                                <div class="col-md-12">
+                                    <div class="content-panel">
+                                        <table class="table table-striped table-advance table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="hidden-phone"><a href="" ng-click="ordenarPor('id')"><i class="fa fa-question-circle"></i> ID</a></th>
+                                                    <th><a href="" ng-click="ordenarPor('product_id')"><i class="fa fa-bookmark"></i> Product</a></th>
+                                                    <th class="hidden-phone"><a href="" ng-click="ordenarPor('quantity')"><i class=" fa fa-edit"></i> Quantity</a></th>
+                                                    <th><a href="" ng-click="ordenarPor('datetime')"><i class=" fa fa-edit"></i> Datetime</a></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="stock in stocks | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                                    <td class="hidden-phone">{{stock.id}}</td>
+                                                    <td>{{stock.product_id}}</td>
+                                                    <td class="hidden-phone">{{stock.quantity}}</td>
+                                                    <td>{{stock.datetime | date:'MM/dd/yyyy HH:mm'}}</td>
+                                                    <td>
+                                                        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                                        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /content-panel -->
+                                </div><!-- /col-md-12 -->
+                            </div><!-- /row -->
 
             </section><! --/wrapper -->
         </section><!-- /MAIN CONTENT -->
@@ -211,15 +192,15 @@
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="../assets/js/jquery.scrollTo.min.js"></script>
+    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="../assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
 
