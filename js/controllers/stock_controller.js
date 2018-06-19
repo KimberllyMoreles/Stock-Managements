@@ -1,7 +1,7 @@
 angular.module("stock_managements")
     .controller("stock_controller", function ($scope, stocksAPI, productsAPI) {
         $scope.products = [];
-        $scope.stocks = [];
+        $scope.stocks = [];        
 
         var load_stocks = function () {
             stocksAPI.getStocks().then(successCallback, errorCallback);
@@ -16,6 +16,7 @@ angular.module("stock_managements")
         };
 
         $scope.add_stock = function (stock) {
+            stock.datetime = new Date(stock.datetime);
             stocksAPI.saveStock(stock).then(successCallback, errorCallback);
 
             function successCallback(data) {

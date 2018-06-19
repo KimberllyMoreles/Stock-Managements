@@ -149,6 +149,51 @@
       "quantity": 44,
       "datetime": "2018-06-05 05:25",
       "id": 6
+    },
+    {
+      "quantity": 2,
+      "product_id": 1,
+      "id": 7
+    },
+    {
+      "product_id": 1,
+      "quantity": 2,
+      "id": 8
+    },
+    {
+      "product_id": 3,
+      "quantity": 3,
+      "id": 9
+    },
+    {
+      "product_id": 3,
+      "quantity": 4,
+      "datetime": "2018-06-01T10:35:00.000Z",
+      "id": 10
+    },
+    {
+      "product_id": 3,
+      "quantity": 3,
+      "datetime": "2018-05-31T09:30:00.000Z",
+      "id": 11
+    },
+    {
+      "datetime": "2000-12-31T00:54:00.000Z",
+      "quantity": 1,
+      "product_id": 2,
+      "id": 12
+    },
+    {
+      "product_id": 8,
+      "quantity": 1,
+      "datetime": "2000-12-08T13:55:00.000Z",
+      "id": 13
+    },
+    {
+      "product_id": 2,
+      "quantity": 500,
+      "datetime": "2000-12-07T12:30:00.000Z",
+      "id": 14
     }
   ]
 }
