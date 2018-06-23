@@ -1,3 +1,10 @@
+/**
+ * Category controller module
+ * 
+ * Function definitions to add, edit and load categories
+ * Auxiliar functions to 
+ */
+
 angular.module("stock_managements")
     .controller("category_controller", function ($scope, categoriesAPI) {
         //$scope.categories = [];
@@ -27,9 +34,9 @@ angular.module("stock_managements")
             }
         };
 
-        $scope.ordenarPor = function (campo) {
-            $scope.criterioDeOrdenacao = campo;
-            $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+        $scope.order_data = function (field) {
+            $scope.order_rule = field;
+            $scope.order_direction = !$scope.order_direction;
         };
 
         $scope.reset_form = function () {

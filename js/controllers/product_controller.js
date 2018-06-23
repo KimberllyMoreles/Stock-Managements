@@ -44,9 +44,9 @@ angular.module("stock_managements")
             $scope.product_add_form.$setPristine();
         };
 
-        $scope.ordenarPor = function (campo) {
-            $scope.criterioDeOrdenacao = campo;
-            $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+        $scope.order_data = function (field) {
+            $scope.order_rule = field;
+            $scope.order_direction = !$scope.order_direction;
         };
 
         load_products();
