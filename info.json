@@ -35,6 +35,34 @@
     {
       "name": "lçl",
       "id": 9
+    },
+    {
+      "name": "teste",
+      "id": 10
+    },
+    {
+      "name": "resd",
+      "id": 11
+    },
+    {
+      "name": "teste",
+      "id": 12
+    },
+    {
+      "name": "bk,m.",
+      "id": 13
+    },
+    {
+      "name": "erwerw",
+      "id": 14
+    },
+    {
+      "name": "teste",
+      "id": 15
+    },
+    {
+      "name": "mesmo",
+      "id": 16
     }
   ],
   "products": [
@@ -117,6 +145,22 @@
       "description": "kjhgfdcvgbhjnmk,",
       "price": "22",
       "id": 10
+    },
+    {
+      "title": "teste",
+      "quantity": 2,
+      "category_id": 2,
+      "description": "kjhvgbn m,nknhjbg",
+      "price": "22",
+      "id": 11
+    },
+    {
+      "category_id": 13,
+      "quantity": 5,
+      "title": "lçjl",
+      "description": "awdadsdassa",
+      "price": "32",
+      "id": 12
     }
   ],
   "stocks": [
@@ -218,6 +262,60 @@
       "quantity": 5,
       "datetime": "2018-06-13T08:25:00.000Z",
       "id": 16
+    },
+    {
+      "datetime": null,
+      "quantity": 22,
+      "product_id": 1,
+      "id": 17
+    },
+    {
+      "product_id": 4,
+      "quantity": 5000,
+      "datetime": null,
+      "id": 18
+    },
+    {
+      "product_id": 2,
+      "quantity": 2,
+      "datetime": null,
+      "id": 19
+    },
+    {
+      "product_id": 11,
+      "quantity": 6,
+      "datetime": null,
+      "id": 20
+    },
+    {
+      "product_id": 9,
+      "quantity": 789,
+      "datetime": null,
+      "id": 21
+    },
+    {
+      "product_id": 9,
+      "quantity": 2,
+      "datetime": null,
+      "id": 22
+    },
+    {
+      "product_id": 10,
+      "quantity": 2,
+      "datetime": null,
+      "id": 23
+    },
+    {
+      "product_id": 3,
+      "quantity": 2,
+      "datetime": "2089-09-22T03:00:00.000Z",
+      "id": 24
+    },
+    {
+      "product_id": 3,
+      "quantity": 25,
+      "datetime": null,
+      "id": 25
     }
   ]
 }

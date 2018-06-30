@@ -12,7 +12,7 @@ angular.module("stock_managements").factory("stocksAPI", function ($http, config
 
     //declares a private function that   
     //receives a stock object and 
-    //returns a post result from stocks
+    //returns a post result from stocks 
     var _saveStock = function (stock) {
         return $http.post(config.baseUrl + "/stocks", stock);
     };

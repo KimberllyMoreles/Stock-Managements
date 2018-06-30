@@ -1,4 +1,4 @@
 /**
- * Main application module with ngMessages importation
+ * Main application module with 'ngMessages' and 'ngRoute' imports
  */
-angular.module("stock_managements", ["ngMessages"]);
+angular.module("stock_managements", ["ngMessages", "ngRoute"]);
