@@ -1,0 +1,40 @@
+﻿
+<!-- **********************************************************************************************************************************************************
+MAIN CONTENT
+*********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Category</h3>
+
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+            <div class="col-lg-5">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Add</h4>
+                    <form class="form-horizontal style-form" method="get" name="category_edit_form">
+                        <div class="form-group">
+                            <label class="col-sm-3 col-sm-3 control-label">Id</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" id="disabledInput" type="text" ng-model="category.id" disabled/>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error' : category_edit_form.name.$error.required && category_edit_form.name.$dirty, 'has-warning' : category_edit_form.name.$error.minlength || category_edit_form.name.$error.maxlength, 'has-success' : category_edit_form.name.$valid}">
+                            <label class="col-sm-3 col-sm-3 control-label">Name</label>
+                            <div class="col-sm-7" ng-messages="category_edit_form.name.$error">
+                                <input type="text" class="form-control" ng-model="category.name" name="name" ng-required="true" ng-minlength="3" ng-maxlength="50">
+                                <span class="help-block" ng-message="required">Name required.</span>
+                                <span class="help-block" ng-message="minlength">Must have at least 3 caracters.</span>
+                                <span class="help-block" ng-message="maxlength">Max length exceeded.</span>
+                            </div>
+                        </div> 
+                        <br />
+                        <button type="button" class="btn btn-theme" ng-click="reset_form()" ng-disabled="category_edit_form.$invalid">Clean</button>
+                        <button type="submit" class="btn btn-theme" ng-click="add_category(category)" ng-disabled="category_edit_form.$invalid">OK</button>
+                    </form>
+                </div>
+            </div><!-- col-lg-12-->
+        </div><!-- /row -->
+    </section><!--/wrapper -->
+</section><!-- /MAIN CONTENT -->
+<!--main content end-->

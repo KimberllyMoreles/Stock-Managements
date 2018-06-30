@@ -17,9 +17,24 @@ angular.module("stock_managements").factory("stocksAPI", function ($http, config
         return $http.post(config.baseUrl + "/stocks", stock);
     };
 
+    //declares a private function that  
+    //returns the get result from stocks
+    var _getStock = function (id) {
+        return $http.get(config.baseUrl + "/stocks/" + id);
+    };
+
+    //declares a private function that   
+    //receives a stock object and 
+    //returns a post result from stocks 
+    var _updateStock = function (stock) {
+        return $http.post(config.baseUrl + "/stocks", stock);
+    };
+
     //returns the object
     return {
         getStocks: _getStocks,
-        saveStock: _saveStock
+        saveStock: _saveStock,
+        getStock: _getStock,
+        updateStock: _updateStock
     };
 });

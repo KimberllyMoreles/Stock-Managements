@@ -1,0 +1,87 @@
+﻿        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+                        <section class="wrapper">
+                            <h3><i class="fa fa-angle-right"></i> Product</h3>
+
+                            <!-- BASIC FORM ELELEMNTS -->
+                            <form class="form-horizontal style-form" method="get" name="product_edit_form">
+                                <div class="row mt">
+                                    <div class="col-lg-12">
+                                        <div class="form-panel">
+                                            <h4 class="mb"><i class="fa fa-angle-right"></i> Add</h4>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="col-sm-1 col-sm-1 control-label">Id</label>
+                                                    <div class="col-sm-4">
+                                                        <input class="form-control" id="disabledInput" type="text" ng-model="product.id" disabled/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1"><br /></div>
+                                                <div ng-class="{'has-error' : product_edit_form.title.$error.required && product_edit_form.title.$dirty, 'has-warning' : product_edit_form.title.$error.minlength || product_edit_form.title.$error.maxlength, 'has-success' : product_edit_form.title.$valid}">
+                                                    <label class="col-sm-1 col-sm-1 control-label">Title</label>
+                                                    <div class="col-sm-5" ng-messages="product_edit_form.title.$error">
+                                                        <input type="text" class="form-control" ng-model="product.title" ng-required="true" name="title" ng-minlength="3" ng-maxlength="100"/>
+                                                        <span class="help-block" ng-message="required">Title required.</span>
+                                                        <span class="help-block" ng-message="minlength">Must have at least 3 caracters.</span>
+                                                        <span class="help-block" ng-message="maxlength">Max length exceeded.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div ng-class="{'has-error' : product_edit_form.quantity.$error.required && product_edit_form.quantity.$dirty, 'has-warning' : product_edit_form.quantity.$error.maxlength, 'has-success' : product_edit_form.quantity.$valid}">
+                                                    <label class="col-sm-1 col-sm-1 control-label">Quantity</label>
+                                                    <div class="col-sm-4" ng-messages="product_edit_form.quantity.$error">
+                                                        <input type="number" class="form-control" ng-model="product.quantity" ng-required="true" name="quantity" ng-maxlength="10"/>
+                                                        <span class="help-block" ng-message="required">Quantity required.</span>
+                                                        <span class="help-block" ng-message="maxlength">Max length exceeded.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1"><br /></div>
+                                                <div ng-class="{'has-error' : product_edit_form.category.$error.required && product_edit_form.category.$dirty, 'has-success' : product_edit_form.category.$valid}">
+                                                    <label class="col-sm-1 col-sm-1 control-label">Category</label>
+                                                    <div class="col-sm-5" ng-messages="product_edit_form.category.$error">
+                                                        <select class="form-control" ng-model="product.category_id" ng-options="category.id as category.name for category in categories" ng-required="true" name="category">
+                                                            <option value="">Category selection:</option>
+                                                        </select>
+                                                        <span class="help-block" ng-message="required">Category required.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-class="{'has-error' : product_edit_form.description.$error.required && product_edit_form.description.$dirty, 'has-warning' : product_edit_form.description.$error.minlength || product_edit_form.description.$error.maxlength, 'has-success' : product_edit_form.description.$valid}">
+                                                <label class="col-sm-1 col-sm-1 control-label">Description</label>
+                                                <div class="col-sm-11" ng-messages="product_edit_form.description.$error">
+                                                    <textarea rows="3" class="form-control" ng-model="product.description" ng-minlength="8" ng-maxlength="500" ng-required="true" name="description"></textarea>
+                                                    <span class="help-block" ng-message="required">Description required.</span>
+                                                    <span class="help-block" ng-message="minlength">Must have at least 8 caracters.</span>
+                                                    <span class="help-block" ng-message="maxlength">Max length exceeded.</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-class="{'has-error' : product_edit_form.price.$error.required && product_edit_form.price.$dirty, 'has-warning': product_edit_form.price.$error.pattern, 'has-success' : product_edit_form.price.$valid}">
+                                                <label class="col-sm-1 col-sm-1 control-label">Price</label>
+                                                <div ng-messages="product_edit_form.price.$error">
+                                                    <div class="input-group col-sm-2">
+                                                        <span class="input-group-editon">$</span>
+                                                        <input type="text" class="form-control" ng-model="product.price" name="price" ng-required="true" ng-pattern="/^\d+([.]\d{1,2})?$/">
+                                                    </div>
+                                                    <div class="col-sm-1"></div>
+                                                    <div class="col-sm-11">
+                                                        <span class="help-block" ng-message="required">Price required.</span> 
+                                                        <span class="help-block" ng-message="pattern">Not allowed format. Ex.: 999.99.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-theme" ng-click="reset_form()" ng-disabled="product_edit_form.$invalid">Clean</button>
+                                            <button type="submit" class="btn btn-theme" ng-click="edit_product(product)" ng-disabled="product_edit_form.$invalid">OK</button>
+
+                                        </div>
+                                    </div><!-- col-lg-12-->
+                                </div>
+                                    <!-- /row -->
+                </form>
+            </section><!--/wrapper -->
+        </section>
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->

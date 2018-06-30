@@ -37,8 +37,7 @@ MAIN CONTENT
                                             <td class="hidden-phone">{{stock.quantity}}</td>
                                             <td>{{stock.datetime | date:'MM/dd/yyyy HH:mm'}}</td>
                                             <td>
-                                                <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                <a class="btn btn-primary btn-xs" href="#!/stock_edit/{{stock.id}}"><i class="fa fa-pencil"></i></a>
                                                 <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                             </td>
                                         </tr>
