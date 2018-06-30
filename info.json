@@ -316,6 +316,12 @@
       "quantity": 25,
       "datetime": null,
       "id": 25
+    },
+    {
+      "product_id": 9,
+      "quantity": 2,
+      "datetime": null,
+      "id": 26
     }
   ]
 }
