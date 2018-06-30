@@ -109,28 +109,11 @@ angular.module("stock_managements").config(function ($routeProvider) {
 		}
 	});
 
-	/*
-	$routeProvider.when("/contatos", {
-		templateUrl: "view/contatos.html",
-		controller: "stock_managementsCtrl",
-		resolve: {
-			contatos: function (contatosAPI) {
-				return contatosAPI.getContatos();
-			},
-			operadoras: function (operadorasAPI) {
-				return operadorasAPI.getOperadoras();
-			}
-		}
+	//Error's page route
+	$routeProvider.when("/error", {
+		templateUrl: "view/error.html",
 	});
-	
-	$routeProvider.when("/detalhesContato/:id", {
-		templateUrl: "view/detalhesContato.html",
-		controller: "detalhesContatoCtrl",
-		resolve: {
-			contato: function (contatosAPI, $route) {
-				return contatosAPI.getContato($route.current.params.id);
-			}
-		}
-	});*/
-	$routeProvider.otherwise({redirectTo: "/category_list"});
+
+	//Default route
+	$routeProvider.otherwise({redirectTo: "/stock_list"});
 });

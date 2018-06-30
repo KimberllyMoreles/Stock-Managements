@@ -27,7 +27,13 @@ angular.module("stock_managements").factory("categoriesAPI", function ($http, co
     //receives a category object and 
     //returns a post result from categories 
     var _updateCategory = function (category) {
-        return $http.post(config.baseUrl + "/categories", category);
+        return $http.put(config.baseUrl + "/categories", category);
+    };
+
+    //declares a private function that receives 
+    //a category object and delete it
+    var _deleteCategory = function (category) {
+        return $http.delete(config.baseUrl + "/categories/" + id);
     };
 
     //returns the object 
@@ -35,6 +41,7 @@ angular.module("stock_managements").factory("categoriesAPI", function ($http, co
         getCategories: _getCategories,
         saveCategory: _saveCategory,
         getCategory: _getCategory,
-        updateCategory: _updateCategory
+        updateCategory: _updateCategory,
+        deleteCategory: _deleteCategory
     };
 });
