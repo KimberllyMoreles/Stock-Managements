@@ -39,7 +39,26 @@ MAIN CONTENT
                                 <td class="hidden-phone">{{product.quantity}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-xs" href="#!/product_edit/{{product.id}}"><i class="fa fa-pencil"></i></a>
-                                    <button class="btn btn-danger btn-xs" ng-click="delete_product(product.id)"><i class="fa fa-trash-o "></i></button>
+                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#dialogModal{{product.id}}"><i class="fa fa-trash-o "></i></button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="dialogModal{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure that you don't need this information anymore?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-primary" ng-click="delete_product(product.id)">OK</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

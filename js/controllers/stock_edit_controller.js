@@ -12,20 +12,21 @@ angular.module("stock_managements")
 
         //function that updates an existing stock
         $scope.update_stock = function (stock) {
-console.log(stock);
+
             //calls updateStock(stock) from stocksAPI, 
             //if everything goes right calls the success function, 
             //if not calls the error one
             stocksAPI.updateStock(stock).then(successCallback, errorCallback);
 
             //in succeed, reset the stock form
-            function successCallback(data) {
+            function successCallback() {
                 $scope.reset_form(stock);
+                $("#successModal").modal();
             }
 
             //in error, shows a message with the error
             function errorCallback(error) {
-                $scope.message = "Error: " + error;
+                $("#errorModal").modal();
             }
         };
 

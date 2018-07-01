@@ -1,8 +1,16 @@
 {
   "categories": [
     {
-      "name": "Books",
+      "name": "1111",
       "id": 1
+    },
+    {
+      "name": "222",
+      "id": 2
+    },
+    {
+      "name": "333]",
+      "id": 3
     }
   ],
   "products": [

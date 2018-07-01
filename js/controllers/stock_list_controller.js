@@ -42,6 +42,7 @@ angular.module("stock_managements")
             //in succeed, reset the stock form
             function successCallback() {
                 load_stocks();
+                $("#dialogModal" + id).modal("hide");
             }
 
             //in error, shows a message with the error

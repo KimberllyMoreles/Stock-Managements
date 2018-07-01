@@ -19,13 +19,14 @@ angular.module("stock_managements")
             productsAPI.updateProduct(product).then(successCallback, errorCallback);
 
             //in succeed, reset the product form
-            function successCallback(data) {
+            function successCallback() {
                 $scope.reset_form(product);
+                $("#successModal").modal();
             }
 
             //in error, shows a message with the error
             function errorCallback(error) {
-                $scope.message = "Error: " + error;
+                $("#errorModal").modal();
             }
         };
 

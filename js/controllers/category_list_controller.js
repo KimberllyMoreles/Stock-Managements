@@ -41,6 +41,7 @@ angular.module("stock_managements")
             //in succeed, reset the category form
             function successCallback() {
                 load_categories();
+                $("#dialogModal" + id).modal("hide");
             }
 
             //in error, shows a message with the error

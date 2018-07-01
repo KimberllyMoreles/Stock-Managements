@@ -19,11 +19,12 @@ angular.module("stock_managements")
             //in succeed, reset the category form
             function successCallback(data) {
                 $scope.reset_form(category);
+                $("#successModal").modal();
             }
 
             //in error, shows a message with the error
             function errorCallback(error) {
-                $scope.message = "Error: " + error;
+                $("#errorModal").modal();
             }
         };
 

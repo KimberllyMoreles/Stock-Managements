@@ -13,7 +13,7 @@ angular.module("stock_managements")
 
         //function that adds a new item to stocks entity
         $scope.add_stock = function (stock) {
-            
+
             //gets the stock.datetime passed through the form
             //and sets it's type to Date
             stock.datetime = new Date(stock.datetime);
@@ -24,13 +24,14 @@ angular.module("stock_managements")
             stocksAPI.saveStock(stock).then(successCallback, errorCallback);
 
             //in succeed, reset the stock form
-            function successCallback(data) {
+            function successCallback() {
                 $scope.reset_form(stock);
+                $("#successModal").modal();
             }
 
             //in error, shows a message with the error
             function errorCallback(error) {
-                $scope.message = "Error: " + error;
+                $("#errorModal").modal();
             }
         };
 
