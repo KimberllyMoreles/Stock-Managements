@@ -1,7 +1,7 @@
 /**
  * Product edition controller module
  * 
- * Function definitions to edit a product and reset the form
+ * Function definitions to edit a product
  * 
  */
 angular.module("stock_managements")
@@ -29,12 +29,5 @@ angular.module("stock_managements")
             function errorCallback(error) {
                 $("#errorModal").modal();
             }
-        };
-
-        //function that resets the product scope
-        //and sets product_edit_form's fields pristine 
-        $scope.reset_form = function () {
-            delete $scope.product;
-            $scope.product_edit_form.$setPristine();
         };       
     });

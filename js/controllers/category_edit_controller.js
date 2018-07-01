@@ -1,7 +1,7 @@
 /**
  * Category edition controller module
  * 
- * Function definitions to update a category and reset the form
+ * Function definitions to update a category
  * 
  */
 angular.module("stock_managements")
@@ -27,12 +27,5 @@ angular.module("stock_managements")
             function errorCallback(error) {
                 $("#errorModal").modal();
             }
-        };
-
-        //function that resets the category scope
-        //and sets category_edit_form's fields pristine 
-        $scope.reset_form = function () {
-            delete $scope.category;
-            $scope.category_edit_form.$setPristine();
-        };       
+        };    
     });
