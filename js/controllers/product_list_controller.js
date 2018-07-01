@@ -1,8 +1,8 @@
 /**
  * Product list controller module
  * 
- * Function definitions to delete a product, 
- * load products and ordenate the list 
+ * Function definitions to delete a product
+ * and load products
  * 
  */
 angular.module("stock_managements")
@@ -50,11 +50,5 @@ angular.module("stock_managements")
                 $scope.message = "Error: " + error;
                 console.log($scope.message);
             }
-        };
-        
-        //function that ordenates the list
-        $scope.order_data = function (field) {
-            $scope.order_rule = field;
-            $scope.order_direction = !$scope.order_direction;
         };
     });

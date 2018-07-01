@@ -1,8 +1,8 @@
 /**
  * Category list controller module
  * 
- * Function definitions to load categories, 
- * delete a category and ordenate the list
+ * Function definitions to load categories 
+ * and delete a category
  * 
  */
 angular.module("stock_managements")
@@ -49,11 +49,5 @@ angular.module("stock_managements")
                 $scope.message = "Error: " + error;
                 console.log($scope.message);
             }
-        };
-
-        //function that ordenate the list
-        $scope.order_data = function (field) {
-            $scope.order_rule = field;
-            $scope.order_direction = !$scope.order_direction;
-        };        
+        };      
     });

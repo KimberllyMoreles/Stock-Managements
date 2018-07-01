@@ -13,6 +13,14 @@
       "description": "A Caraval Novel",
       "price": "65.90",
       "id": 1
+    },
+    {
+      "title": "Caraval",
+      "quantity": 50,
+      "category_id": 1,
+      "description": "Remember, It's just a game...",
+      "price": "40.55",
+      "id": 2
     }
   ],
   "stocks": [
