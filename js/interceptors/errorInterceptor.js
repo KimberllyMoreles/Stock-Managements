@@ -1,3 +1,6 @@
+/**
+ * Error 404 interceptor
+ */
 angular.module("stock_managements").factory("errorInterceptor", function ($q, $location) {
 	return {
 		responseError: function (rejection) {

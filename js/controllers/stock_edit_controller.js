@@ -12,7 +12,7 @@ angular.module("stock_managements")
 
         //function that updates an existing stock
         $scope.update_stock = function (stock) {
-
+console.log(stock);
             //calls updateStock(stock) from stocksAPI, 
             //if everything goes right calls the success function, 
             //if not calls the error one

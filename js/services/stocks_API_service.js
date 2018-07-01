@@ -27,7 +27,7 @@ angular.module("stock_managements").factory("stocksAPI", function ($http, config
     //receives a stock object and 
     //returns a post result from stocks 
     var _updateStock = function (stock) {
-        return $http.post(config.baseUrl + "/stocks", stock);
+        return $http.put(config.baseUrl + "/stocks/" + stock.id, stock);
     };
 
     //returns the object

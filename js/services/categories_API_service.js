@@ -27,7 +27,7 @@ angular.module("stock_managements").factory("categoriesAPI", function ($http, co
     //receives a category object and 
     //returns a post result from categories 
     var _updateCategory = function (category) {
-        return $http.put(config.baseUrl + "/categories", category);
+        return $http.put(config.baseUrl + "/categories/" + category.id, category);
     };
 
     //declares a private function that receives 

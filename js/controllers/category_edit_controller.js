@@ -10,7 +10,7 @@ angular.module("stock_managements")
         $scope.category = category.data;
         //function that updates an existing category
         $scope.update_category = function (category) {
-
+console.log(category);
             //calls updateCategory(category) from categoriesAPI, 
             //if everything goes right calls the success function, 
             //if not calls the error one
