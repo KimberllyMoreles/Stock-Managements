@@ -1,8 +1,12 @@
 {
   "categories": [
     {
-      "name": "Books",
+      "name": "Book",
       "id": 1
+    },
+    {
+      "name": "Clothing",
+      "id": 2
     }
   ],
   "products": [
@@ -16,7 +20,7 @@
     },
     {
       "title": "Caraval",
-      "quantity": 50,
+      "quantity": 500,
       "category_id": 1,
       "description": "Remember, It's just a game...",
       "price": "40.55",

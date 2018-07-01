@@ -17,9 +17,8 @@ angular.module("stock_managements")
             //if not calls the error one
             categoriesAPI.updateCategory(category).then(successCallback, errorCallback);
 
-            //in succeed, reset the category form and open up a success modal
-            function successCallback(data) {
-                $scope.reset_form(category);
+            //in succeed, open up a success modal
+            function successCallback() {
                 $("#successModal").modal();
             }
 

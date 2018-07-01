@@ -19,9 +19,8 @@ angular.module("stock_managements")
             //if not calls the error one
             stocksAPI.updateStock(stock).then(successCallback, errorCallback);
 
-            //in succeed, reset the stock form and open up a success modal
+            //in succeed, open up a success modal
             function successCallback() {
-                $scope.reset_form(stock);
                 $("#successModal").modal();
             }
 
