@@ -38,7 +38,7 @@ MAIN CONTENT
                                             <td>{{stock.datetime | date:'MM/dd/yyyy HH:mm'}}</td>
                                             <td>
                                                 <a class="btn btn-primary btn-xs" href="#!/stock_edit/{{stock.id}}"><i class="fa fa-pencil"></i></a>
-                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                <button class="btn btn-danger btn-xs" ng-click="delete_stock(stock.id)"><i class="fa fa-trash-o "></i></button>
                                             </td>
                                         </tr>
                                     </tbody>

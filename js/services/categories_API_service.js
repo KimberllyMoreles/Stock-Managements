@@ -32,7 +32,7 @@ angular.module("stock_managements").factory("categoriesAPI", function ($http, co
 
     //declares a private function that receives 
     //a category object and delete it
-    var _deleteCategory = function (category) {
+    var _deleteCategory = function (id) {
         return $http.delete(config.baseUrl + "/categories/" + id);
     };
 

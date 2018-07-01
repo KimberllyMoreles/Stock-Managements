@@ -30,11 +30,18 @@ angular.module("stock_managements").factory("stocksAPI", function ($http, config
         return $http.put(config.baseUrl + "/stocks/" + stock.id, stock);
     };
 
+    //declares a private function that receives 
+    //a stock object and delete it
+    var _deleteStock = function (id) {
+        return $http.delete(config.baseUrl + "/stocks/" + id);
+    };
+
     //returns the object
     return {
         getStocks: _getStocks,
         saveStock: _saveStock,
         getStock: _getStock,
-        updateStock: _updateStock
+        updateStock: _updateStock,
+        deleteStock: _deleteStock
     };
 });

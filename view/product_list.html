@@ -39,7 +39,7 @@ MAIN CONTENT
                                 <td class="hidden-phone">{{product.quantity}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-xs" href="#!/product_edit/{{product.id}}"><i class="fa fa-pencil"></i></a>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                    <button class="btn btn-danger btn-xs" ng-click="delete_product(product.id)"><i class="fa fa-trash-o "></i></button>
                                 </td>
                             </tr>
                         </tbody>

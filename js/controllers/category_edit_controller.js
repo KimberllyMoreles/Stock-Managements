@@ -8,9 +8,10 @@ angular.module("stock_managements")
     .controller("category_edit_controller", function ($scope, categoriesAPI, category) {
 
         $scope.category = category.data;
+        
         //function that updates an existing category
         $scope.update_category = function (category) {
-console.log(category);
+
             //calls updateCategory(category) from categoriesAPI, 
             //if everything goes right calls the success function, 
             //if not calls the error one
