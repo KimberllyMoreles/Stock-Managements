@@ -39,7 +39,7 @@ MAIN CONTENT
                             <label class="col-sm-3 col-sm-3 control-label">Datetime</label>
                             <div ng-messages="stock_edit_form.datetime.$error">
                                 <div class='input-group date col-sm-8' id='datetimepicker1' >
-                                    <input type='datetime' id="datetime" class="form-control" ng-model="stock.datetime" ng-required="true" name="datetime" ng-pattern="/^([0]{0,1}[1-9]|1[012])-([1-9]|([012][0-9])|(3[01]))-\d\d\d\d [012]{0,1}[0-9]:[0-6][0-9]$/"/>
+                                    <input type='datetime' id="datetime" class="form-control" ng-model="stock.datetime | date : 'MM/dd/yyyy HH:mm'" ng-required="true" name="datetime" ng-pattern="/^([0]{0,1}[1-9]|1[012])-([1-9]|([012][0-9])|(3[01]))-\d\d\d\d [012]{0,1}[0-9]:[0-6][0-9]$/" disabled/>
                                     <span class="input-group-editon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>

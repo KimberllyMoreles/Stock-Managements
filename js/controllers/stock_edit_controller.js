@@ -7,6 +7,7 @@
 angular.module("stock_managements")
     .controller("stock_edit_controller", function ($scope, stocksAPI, stock, products) {
 
+        //initializes $scope.products and $scope.stock
         $scope.stock = stock.data;
         $scope.products = products.data;
 
@@ -18,13 +19,13 @@ angular.module("stock_managements")
             //if not calls the error one
             stocksAPI.updateStock(stock).then(successCallback, errorCallback);
 
-            //in succeed, reset the stock form
+            //in succeed, reset the stock form and open up a success modal
             function successCallback() {
                 $scope.reset_form(stock);
                 $("#successModal").modal();
             }
 
-            //in error, shows a message with the error
+            //in error, open up an error modal
             function errorCallback(error) {
                 $("#errorModal").modal();
             }

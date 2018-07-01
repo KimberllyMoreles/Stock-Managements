@@ -1,14 +1,13 @@
 /**
- * Stock controller module
+ * Stock add controller module
  * 
- * Function definitions to add, edit and load data from the stock
- * Functions to ordenate the list and reset the form
+ * Function definitions to add data to stock and reset the form
  * 
  */
 angular.module("stock_managements")
     .controller("stock_add_controller", function ($scope, stocksAPI, products) {
         
-        //initializes empty $scope.products and $scope.stocks
+        //initializes $scope.products
         $scope.products = products.data;
 
         //function that adds a new item to stocks entity
@@ -23,20 +22,20 @@ angular.module("stock_managements")
             //if not calls the error one
             stocksAPI.saveStock(stock).then(successCallback, errorCallback);
 
-            //in succeed, reset the stock form
+            //in succeed, reset the stock form and open up a success modal
             function successCallback() {
                 $scope.reset_form(stock);
                 $("#successModal").modal();
             }
 
-            //in error, shows a message with the error
+            //in error, open up an error modal
             function errorCallback(error) {
                 $("#errorModal").modal();
             }
         };
 
         //function that resets the stock scope
-        //and sets  stock_add_form's fields pristine 
+        //and sets stock_add_form's fields pristine 
         $scope.reset_form = function (stock) {
             delete $scope.stock;
             $scope.stock_add_form.$setPristine();

@@ -1,14 +1,14 @@
 /**
- * Category controller module
+ * Category list controller module
  * 
- * Function definitions to add, edit and load categories
- * Functions to ordenate the list and reset the form
+ * Function definitions to load categories, 
+ * delete a category and ordenate the list
  * 
  */
 angular.module("stock_managements")
     .controller("category_list_controller", function ($scope, categoriesAPI, categories) {
 
-        //initializes empty $scope.categories
+        //initializes $scope.categories
         $scope.categories = categories.data;
 
         //function that loads the categories list
@@ -16,7 +16,7 @@ angular.module("stock_managements")
 
             //calls getCategories() from categories API,
             //if the request succeed calls the success function,
-            //if not call the error one
+            //if not calls the error one
             categoriesAPI.getCategories().then(successCallback, errorCallback);
 
             //in succeed, sets $scope.categories with the data result
@@ -33,12 +33,12 @@ angular.module("stock_managements")
         //function that deletes an existing category
         $scope.delete_category = function (id) {
 
-            //calls updateCategory(category) from categoriesAPI, 
+            //calls deleteCategory(id) from categoriesAPI, 
             //if everything goes right calls the success function, 
             //if not calls the error one
             categoriesAPI.deleteCategory(id).then(successCallback, errorCallback);
 
-            //in succeed, reset the category form
+            //in succeed, reload the categories list and close up the dialog modal
             function successCallback() {
                 load_categories();
                 $("#dialogModal" + id).modal("hide");

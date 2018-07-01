@@ -1,14 +1,14 @@
 /**
- * Stock controller module
+ * Stock list controller module
  * 
- * Function definitions to add, edit and load data from the stock
- * Functions to ordenate the list and reset the form
+ * Function definitions to load data from 
+ * the stock, delete it and to ordenate the list 
  * 
  */
 angular.module("stock_managements")
     .controller("stock_list_controller", function ($scope, stocks, products, stocksAPI) {
         
-        //initializes empty $scope.stocks and $scope.products
+        //initializes $scope.stocks and $scope.products
         $scope.products = products.data;
         $scope.stocks = stocks.data;
 
@@ -39,7 +39,7 @@ angular.module("stock_managements")
             //if not calls the error one
             stocksAPI.deleteStock(id).then(successCallback, errorCallback);
 
-            //in succeed, reset the stock form
+            //in succeed, reloads the stocks list and hide the modal dialog
             function successCallback() {
                 load_stocks();
                 $("#dialogModal" + id).modal("hide");

@@ -1,14 +1,13 @@
 /**
- * Product controller module
+ * Product add controller module
  * 
- * Function definitions to add, edit and load products
- * Functions to ordenate the list and reset the form
+ * Function definitions to add a product and reset the form
  * 
  */
 angular.module("stock_managements")
     .controller("product_add_controller", function ($scope, productsAPI, categories) {
         
-        //initializes empty $scope.categories and $scope.products
+        //initializes $scope.categories
         $scope.categories = categories.data;
 
         //function that adds a new product
@@ -19,13 +18,13 @@ angular.module("stock_managements")
             //if not calls the error one
             productsAPI.saveProduct(product).then(successCallback, errorCallback);
 
-            //in succeed, reset the product form
+            //in succeed, reset the product form and open up a success modal
             function successCallback(data) {
                 $scope.reset_form(product);
                 $("#successModal").modal();
             }
 
-            //in error, shows a message with the error
+            //in error, open up an error modal
             function errorCallback(error) {
                 $("#errorModal").modal();
             }

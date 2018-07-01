@@ -1,7 +1,7 @@
 /**
  * Category edition controller module
  * 
- * Function definitions to edit a category and reset the form
+ * Function definitions to update a category and reset the form
  * 
  */
 angular.module("stock_managements")
@@ -17,13 +17,13 @@ angular.module("stock_managements")
             //if not calls the error one
             categoriesAPI.updateCategory(category).then(successCallback, errorCallback);
 
-            //in succeed, reset the category form
+            //in succeed, reset the category form and open up a success modal
             function successCallback(data) {
                 $scope.reset_form(category);
                 $("#successModal").modal();
             }
 
-            //in error, shows a message with the error
+            //in error, open up an error modal
             function errorCallback(error) {
                 $("#errorModal").modal();
             }

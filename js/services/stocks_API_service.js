@@ -5,7 +5,7 @@
 angular.module("stock_managements").factory("stocksAPI", function ($http, config) {
     
     //declares a private function that  
-    //returns the get result from stocks
+    //returns all data from stocks
     var _getStocks = function () {
         return $http.get(config.baseUrl + "/stocks");
     };
@@ -18,20 +18,20 @@ angular.module("stock_managements").factory("stocksAPI", function ($http, config
     };
 
     //declares a private function that  
-    //returns the get result from stocks
+    //returns a specific information from stocks
     var _getStock = function (id) {
         return $http.get(config.baseUrl + "/stocks/" + id);
     };
 
     //declares a private function that   
     //receives a stock object and 
-    //returns a post result from stocks 
+    //update it where the id matches 
     var _updateStock = function (stock) {
         return $http.put(config.baseUrl + "/stocks/" + stock.id, stock);
     };
 
     //declares a private function that receives 
-    //a stock object and delete it
+    //a stock id and delete it
     var _deleteStock = function (id) {
         return $http.delete(config.baseUrl + "/stocks/" + id);
     };

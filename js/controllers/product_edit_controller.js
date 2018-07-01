@@ -7,6 +7,7 @@
 angular.module("stock_managements")
     .controller("product_edit_controller", function ($scope, productsAPI, product, categories) {
 
+        //initializes $scope.categories and $scope.product
         $scope.product = product.data;
         $scope.categories = categories.data;
 
@@ -18,13 +19,13 @@ angular.module("stock_managements")
             //if not calls the error one
             productsAPI.updateProduct(product).then(successCallback, errorCallback);
 
-            //in succeed, reset the product form
+            //in succeed, reset the product form and open up a success modal
             function successCallback() {
                 $scope.reset_form(product);
                 $("#successModal").modal();
             }
 
-            //in error, shows a message with the error
+            //in error, open up an error modal
             function errorCallback(error) {
                 $("#errorModal").modal();
             }

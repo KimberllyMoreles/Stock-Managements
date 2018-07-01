@@ -1,24 +1,16 @@
 {
   "categories": [
     {
-      "name": "1111",
+      "name": "Books",
       "id": 1
-    },
-    {
-      "name": "222",
-      "id": 2
-    },
-    {
-      "name": "333]",
-      "id": 3
     }
   ],
   "products": [
     {
       "title": "Legendary",
-      "description": "A Caraval Novel",
-      "quantity": 50,
+      "quantity": 30,
       "category_id": 1,
+      "description": "A Caraval Novel",
       "price": "65.90",
       "id": 1
     }
@@ -27,8 +19,14 @@
     {
       "product_id": 1,
       "quantity": 1,
-      "datetime": "2018-06-07T01:45:00.000Z",
+      "datetime": "2018-06-06T01:22:00.000Z",
       "id": 1
+    },
+    {
+      "product_id": 1,
+      "quantity": 22,
+      "datetime": "2000-05-23T01:44:00.000Z",
+      "id": 2
     }
   ]
 }

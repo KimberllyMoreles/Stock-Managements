@@ -1,8 +1,8 @@
 /**
- * Product controller module
+ * Product list controller module
  * 
- * Function definitions to add, edit and load products
- * Functions to ordenate the list and reset the form
+ * Function definitions to delete a product, 
+ * load products and ordenate the list 
  * 
  */
 angular.module("stock_managements")
@@ -17,7 +17,7 @@ angular.module("stock_managements")
 
             //calls getProducts() from products API,
             //if the request succeed calls the success function,
-            //if not call the error one
+            //if not calls the error one
             productsAPI.getProducts().then(successCallback, errorCallback);
 
             //in succeed, sets $scope.products with the data result
@@ -34,12 +34,12 @@ angular.module("stock_managements")
         //function that deletes an existing product
         $scope.delete_product = function (id) {
 
-            //calls updateProduct(product) from productsAPI, 
+            //calls deleteProduct(id) from productsAPI, 
             //if everything goes right calls the success function, 
             //if not calls the error one
             productsAPI.deleteProduct(id).then(successCallback, errorCallback);
 
-            //in succeed, reset the product form
+            //in succeed, reload the products list and hide the dialog modal
             function successCallback() {
                 load_products();
                 $("#dialogModal" + id).modal("hide");
