@@ -4,8 +4,8 @@
 angular.module("stock_managements").filter("ellipsis", function () {
 
     //receives a string and the size, default it's 10
-    return function (input, size = 10) {
-
+    return function (input, size) {
+        size = size || 10;
         //checks if the input's size are valid
         if (input.length < size) return input;
 
